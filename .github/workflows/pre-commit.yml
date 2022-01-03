@@ -1,0 +1,40 @@
+name: pre-commit
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+
+      - name: Read go version
+        id: go-version
+        run: |
+          content=`cat ./.go-version`
+          echo "::set-output name=content::$content"
+
+      - name: Set up go
+        uses: actions/setup-go@v2
+        with:
+          # TODO: Replace with go-version-from-file when it is supported
+          # https://github.com/actions/setup-go/pull/62
+          go-version: ${{ steps.go-version.outputs.content }}
+
+      - name: Install pre-commit and dependencies
+        run: |
+          pip install pre-commit
+          curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin latest
+
+      - name: Execute pre-commit
+        run: pre-commit run --all
