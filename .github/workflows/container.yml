@@ -12,8 +12,8 @@ on:
 
 jobs:
   build:
-    name: build
     runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       - name: Check Out
         uses: actions/checkout@v2
