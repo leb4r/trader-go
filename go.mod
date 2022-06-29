@@ -14,6 +14,6 @@ require (
 	github.com/spf13/viper v1.10.1
 	go.uber.org/zap v1.17.0
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
-	gorm.io/driver/sqlite v1.2.6
-	gorm.io/gorm v1.22.4
+	gorm.io/driver/sqlite v1.3.5
+	gorm.io/gorm v1.23.4
 )
