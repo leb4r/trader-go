@@ -5,7 +5,7 @@ go 1.16
 require (
 	github.com/algorand/go-algorand-sdk v1.11.0
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
-	github.com/aws/aws-sdk-go v1.42.29
+	github.com/aws/aws-sdk-go v1.44.60
 	github.com/gorilla/websocket v1.4.2
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/preichenberger/go-coinbasepro/v2 v2.1.0
